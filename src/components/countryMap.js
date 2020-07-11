@@ -3,10 +3,15 @@ import { ResponsiveChoropleth } from '@nivo/geo';
 import countries from "./world_countries.json";
 
 const Countries = ({countryData}) => {
+    var cleanData = []
+    for (let d of countryData) {
+        cleanData.push({'id': d.CountryCode,
+        'value': d.TotalConfirmed})
+    }
     return (
         <div style={{height: '1000px'}}>
             <ResponsiveChoropleth
-            data={countryData}
+            data={cleanData}
             features={countries.features}
             margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
             colors="nivo"
