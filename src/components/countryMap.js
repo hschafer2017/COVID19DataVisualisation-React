@@ -9,16 +9,18 @@ const Countries = ({countryData}) => {
         'value': d.TotalConfirmed})
     }
     return (
-        <div style={{height: '1000px'}}>
+        <div style={{height: '450px'}}>
             <ResponsiveChoropleth
             data={cleanData}
             features={countries.features}
             margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
-            colors="nivo"
-            domain={[ 0, 1000000 ]}
+            colors="YlOrRd"
+            domain={[ 0, 500000 ]}
             unknownColor="#666666"
             label="properties.name"
             valueFormat=".2s"
+            projectionType="naturalEarth1"
+            projectionScale={160}
             projectionTranslation={[ 0.5, 0.5 ]}
             projectionRotation={[ 0, 0, 0 ]}
             enableGraticule={true}
@@ -32,7 +34,7 @@ const Countries = ({countryData}) => {
                     direction: 'column',
                     justify: true,
                     translateX: 20,
-                    translateY: -250,
+                    translateY: -100,
                     itemsSpacing: 0,
                     itemWidth: 94,
                     itemHeight: 18,
