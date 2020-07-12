@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './App.css';
 import Countries from './components/countryMap';
+import CountryGrid from './components/perCountryGrid';
 
 
 class App extends Component {
@@ -10,22 +11,22 @@ class App extends Component {
 		super(props);
 		this.state = {
 			countryData: [],
+			oneCountryData: [],
 			loaded: false,
 			placeholder: "Loading..."
 		};
 	};
 
 	componentDidMount() {
-		fetch('https://api.covid19api.com/summary')
-		.then(response => {
-			if (response.status > 400) {
-				return response;
-			};
-			return response.json();
-		})
-		.then(countriesData => {
+		Promise.all([
+			fetch('https://api.covid19api.com/summary'),
+			fetch('https://api.covid19api.com/live/country/united-states/status/confirmed')
+		])
+		.then(([response, response1]) => Promise.all([response.json(), response1.json()]))
+		.then(([response, response1]) => {
 			this.setState({
-				countryData: countriesData.Countries
+				countryData: response.Countries,
+				oneCountryData: response1
 			});
 		})
 		.catch(console.log)
@@ -33,7 +34,10 @@ class App extends Component {
 
 	render () {
 		return (
-			<Countries countryData={this.state.countryData} />
+			<div>
+				<Countries countryData={this.state.countryData} />
+				<CountryGrid eachCountryData={this.state.oneCountryData} />
+			</div>
 		)
 	}
 
