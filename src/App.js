@@ -20,7 +20,7 @@ class App extends Component {
 	componentDidMount() {
 		Promise.all([
 			fetch('https://api.covid19api.com/summary'),
-			fetch('https://api.covid19api.com/live/country/united-states/status/confirmed')
+			fetch('https://api.covid19api.com/total/country/united-states')
 		])
 		.then(([response, response1]) => Promise.all([response.json(), response1.json()]))
 		.then(([response, response1]) => {
