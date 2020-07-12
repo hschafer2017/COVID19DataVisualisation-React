@@ -58,4 +58,4 @@ const Countries = ({countryData}) => {
     )
 };
 
-export default Countries
+export default Countries;
