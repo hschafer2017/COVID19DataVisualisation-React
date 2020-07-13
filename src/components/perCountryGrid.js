@@ -7,13 +7,13 @@ var formatDate = (date) => {
 };
 
 const CountryGrid = ({eachCountryData}) => {
-    var cleanData = []
+    var cleanData = [];
     for (let d of eachCountryData) {
         cleanData.push({
             'day': formatDate(d.Date),
             'value': d.Active
         })
-    }
+    };
     return (
         <div style={{height: '450px'}}>
             <ResponsiveCalendar

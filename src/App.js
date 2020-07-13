@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import './App.css';
 import Countries from './components/countryMap';
 import CountryGrid from './components/perCountryGrid';
+import CountrySearch from './components/countrySearch';
 
 
 class App extends Component {
@@ -36,6 +37,7 @@ class App extends Component {
 		return (
 			<div>
 				<Countries countryData={this.state.countryData} />
+				<CountrySearch />
 				<CountryGrid eachCountryData={this.state.oneCountryData} />
 			</div>
 		)
