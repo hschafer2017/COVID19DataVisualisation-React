@@ -1,5 +1,5 @@
 const countryOptions = [
-    { key: 'af', value: 'af', flag: 'af', text: 'Afghanistan' },
+    { key: 'af', value: 'afghanistan', flag: 'af', text: 'Afghanistan' },
     { key: 'ax', value: 'ax', flag: 'ax', text: 'Aland Islands' },
     { key: 'al', value: 'al', flag: 'al', text: 'Albania' },
     { key: 'dz', value: 'dz', flag: 'dz', text: 'Algeria' },
