@@ -5,6 +5,7 @@ import './App.css';
 import Countries from './components/countryMap';
 import CountryGrid from './components/perCountryGrid';
 import countryOptions from './components/countryOptions';
+import NewCaseData from './components/topCountriesBar';
 
 
 class App extends Component {
@@ -50,6 +51,7 @@ class App extends Component {
 		return (
 			<div>
 				<Countries countryData={this.state.countryData} />
+				<NewCaseData countryData={this.state.countryData} />
 				<Dropdown
 					placeholder='Select Country'
 					search
