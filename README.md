@@ -1,3 +1,17 @@
+## COVID-19 Data Visualisation of Live Data
+
+A dashboard showing the impact of COVID 19 in different countries throughout the world. This dashboard is using [Nivo](https://nivo.rocks/), a React data visualisation library, and the [COVID 19 API](https://covid19api.com/) to display live, updated data on the cases, deaths, recoveries, and active cases in various countries across the world. 
+
+### Features 
+- A Chloropleth heatmap showing the concentration of confirmed cases across the globe
+- A stacked bar chart showing today's top 8 countries for new confirmed cases, including information on that country's death and recovery rate for today.
+- A stacked bar chart showing the top 8 countries for total confirmed case count, including information on that country's total death and total recovery rate.
+
+Upon choosing an individual country from the country dropdown, a user will see:
+- A calendar heatmap showing the number of confirmed cases per day since January 2020 for the chosen country.
+- A pie chart showing today's confirmed case count, death toll, and recovery numbers for the chosen country. 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
