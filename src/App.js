@@ -6,6 +6,7 @@ import Countries from './components/countryMap';
 import CountryGrid from './components/perCountryGrid';
 import countryOptions from './components/countryOptions';
 import NewCaseData from './components/topCountriesBar';
+import CasePie from './components/casePie';
 
 
 class App extends Component {
@@ -72,6 +73,7 @@ class App extends Component {
 					onChange={this.handleSelectChange}
             	/>
 				<CountryGrid eachCountryData={this.state.oneCountryData} />
+				<CasePie countryData={this.state.oneCountryData} />
 			</div>
 		)
 	}
