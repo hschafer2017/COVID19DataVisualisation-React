@@ -2,22 +2,22 @@ import React from 'react';
 import { ResponsiveBar } from '@nivo/bar'
 
 
-const NewCaseDataBar = ({ countryData }) => {
+const NewCaseDataBar = ({ countryData, cases, deaths, recoveries }) => {
     var cleanData = [];
     for (let d of countryData) {
         cleanData.push({
-            'Country': d.Country,
-            'New Cases': d.NewConfirmed,
-            'New Deaths': d.NewDeaths,
-            'New Recoveries': d.NewRecovered,
+            "Country": d.Country,
+            "Cases" : d[cases],
+            "Deaths": d[deaths],
+            "Recoveries": d[recoveries],
         })
     };
-    cleanData.sort((a, b) => (a['New Cases'] > b['New Cases']) ? -1 : 1);
+    cleanData.sort((a, b) => (a["Cases"] > b["Cases"]) ? -1 : 1);
     return (
         <div style={{height: '400px'}}>
             <ResponsiveBar
             data={cleanData.slice(0,8)}
-            keys={[ 'New Cases', 'New Deaths', 'New Recoveries' ]}
+            keys={[ "Cases", "Deaths", "Recoveries" ]}
             indexBy="Country"
             margin={{ top: 50, right: 130, bottom: 50, left: 80 }}
             padding={0.3}
@@ -40,11 +40,12 @@ const NewCaseDataBar = ({ countryData }) => {
                 tickRotation: 0,
                 legend: 'People',
                 legendPosition: 'middle',
-                legendOffset: -60
+                legendOffset: -70
             }}
             labelSkipWidth={12}
             labelSkipHeight={12}
             labelTextColor={{ from: 'color', modifiers: [ [ 'darker', '1.8' ] ] }}
+            labelFormat={v => `${v/1000}k`}
             legends={[
                 {
                     dataFrom: 'keys',

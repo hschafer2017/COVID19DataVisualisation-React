@@ -51,7 +51,18 @@ class App extends Component {
 		return (
 			<div>
 				<Countries countryData={this.state.countryData} />
-				<NewCaseData countryData={this.state.countryData} />
+				<NewCaseData 
+					countryData={this.state.countryData} 
+					cases="NewConfirmed"
+					deaths="NewDeaths"
+					recoveries="NewRecovered"
+				/>
+				<NewCaseData
+					countryData={this.state.countryData}
+					cases="TotalConfirmed"
+					deaths="TotalDeaths"
+					recoveries="TotalRecovered"
+				/>
 				<Dropdown
 					placeholder='Select Country'
 					search
